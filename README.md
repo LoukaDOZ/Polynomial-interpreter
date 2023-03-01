@@ -66,5 +66,5 @@ DERIVE P AT y  ~>  P'(y) = 2.y – 4
 P(x) = x
 ```
 ```
-FIND ROOT FOR P BETWEEN 0 AND 150 ~> 0.000000
+FIND ROOT FOR P BETWEEN 0 AND 150  ~>  0.000000
 ```
