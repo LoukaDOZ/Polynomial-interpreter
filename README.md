@@ -248,14 +248,15 @@ DERIVE 2 TIMES P AT pi      =>  P'(pi) = 2
 
 Find the root between 2 numbers with a declared polynomials with `LET`.
 ```
-FIND ROOT FOR <poly> BETWEEN <a> AND <b>
+FIND ROOT FOR <poly> BETWEEN <a> AND <b> <SAVE AS <file>>
 ```
 
-| Token   | Description            | Constraints                                | Optional |
-| ------- | ---------------------- | ------------------------------------------ | -------- |
-| <poly\> | Polynomial name        | Must have been declared with `LET` before  | No       |
-| <a\>    | First number for root  | Must be an integer                         | No       |
-| <b\>    | Second number for root | Must be an integer                         | No       |
+| Token                 | Description                                   | Constraints                                | Optional |
+| --------------------- | --------------------------------------------- | ------------------------------------------ | -------- |
+| <poly\>               | Polynomial name                               | Must have been declared with `LET` before  | No       |
+| <a\>                  | First number for root                         | Must be an integer                         | No       |
+| <b\>                  | Second number for root                        | Must be an integer                         | No       |
+| <SAVE AS <file\>\>    | File where will be saved intermediate results | File name of maximum 256 characters        | Yes      |
 
 :warning: Constraits also includes : a < b and P(a) * P(b) <= 0
 
@@ -268,7 +269,49 @@ LET P(x) = x^2 - 4x
 
 Find root :
 ```
-FIND ROOT FOR P BETWEEN 0 AND 150   =>  4.000000
+FIND ROOT FOR P BETWEEN 0 AND 150                               =>  4.000000
+```
+
+Find root and save intermediate results :
+```
+FIND ROOT FOR P BETWEEN 0 AND 150 SAVE AS intermediate_results  =>  4.000000
+```
+Intermediates results will then be found in the fine named `intermediate_results.md` :
+```md
+# Recherche d'une racine entre 0.000000 et 150.000000
+## Etapes intermédiaires
+| Itération | a | b | c = (a + b) / 2 | P\(c\) |
+| --------- | - | - | --------------- | ----- |
+| 0 | 0.000000 | 150.000000 | 75.000000 | 5325.000000 |
+| 1 | 0.000000 | 75.000000 | 37.500000 | 1256.250000 |
+| 2 | 0.000000 | 37.500000 | 18.750000 | 276.562500 |
+| 3 | 0.000000 | 18.750000 | 9.375000 | 50.390625 |
+| 4 | 0.000000 | 9.375000 | 4.687500 | 3.222656 |
+| 5 | 0.000000 | 4.687500 | 2.343750 | -3.881836 |
+| 6 | 2.343750 | 4.687500 | 3.515625 | -1.702881 |
+| 7 | 3.515625 | 4.687500 | 4.101562 | 0.416565 |
+| 8 | 3.515625 | 4.101562 | 3.808594 | -0.728989 |
+| 9 | 3.808594 | 4.101562 | 3.955078 | -0.177670 |
+| 10 | 3.955078 | 4.101562 | 4.028320 | 0.114083 |
+| 11 | 3.955078 | 4.028320 | 3.991699 | -0.033134 |
+| 12 | 3.991699 | 4.028320 | 4.010010 | 0.040139 |
+| 13 | 3.991699 | 4.010010 | 4.000854 | 0.003419 |
+| 14 | 3.991699 | 4.000854 | 3.996277 | -0.014879 |
+| 15 | 3.996277 | 4.000854 | 3.998566 | -0.005735 |
+| 16 | 3.998566 | 4.000854 | 3.999710 | -0.001160 |
+| 17 | 3.999710 | 4.000854 | 4.000282 | 0.001129 |
+| 18 | 3.999710 | 4.000282 | 3.999996 | -0.000015 |
+| 19 | 3.999996 | 4.000282 | 4.000139 | 0.000557 |
+| 20 | 3.999996 | 4.000139 | 4.000068 | 0.000271 |
+| 21 | 3.999996 | 4.000068 | 4.000032 | 0.000128 |
+| 22 | 3.999996 | 4.000032 | 4.000014 | 0.000056 |
+| 23 | 3.999996 | 4.000014 | 4.000005 | 0.000021 |
+| 24 | 3.999996 | 4.000005 | 4.000001 | 0.000003 |
+| 25 | 3.999996 | 4.000001 | 3.999998 | -0.000006 |
+| 26 | 3.999998 | 4.000001 | 4.000000 | -0.000002 |
+| 27 | 4.000000 | 4.000001 | 4.000000 | 0.000000 |
+## Résultat trouvé
+x = 4.000000
 ```
 
 ### Using a file
