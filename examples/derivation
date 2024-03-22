@@ -1,0 +1,15 @@
+LET P(x) = x + 4x^2 + 5 * x^4
+
+DERIVE P
+P'(x)
+
+DERIVE P AT 5
+P'(5)
+
+DERIVE 2 TIMES P
+P''(y)
+
+DERIVE 2 TIMES P AT pi
+P''(5)
+
+P'(x) * 2

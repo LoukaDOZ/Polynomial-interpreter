@@ -1,0 +1,7 @@
+let P1(x) = x
+let P2(x) = 2x + 2.x
+let P3(y) = 3y^2 + 2.y^4 + y^5 + 0y^6 + y^1
+let P4(x) = ((5+5)^4 * (x*x)^2) + 1
+let Hello(a) = a * 2a + 5 + 1 * 4 - a - 2
+let ListMode(x) = [(1,2), (0,3), (1,6), (-4,1)]
+SHOW 

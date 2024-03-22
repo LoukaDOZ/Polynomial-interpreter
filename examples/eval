@@ -1,0 +1,6 @@
+LET P(x) = x + 4x^2 + 5 * x * x
+
+EVAL P AT y
+EVAL P AT pi
+EVAL P AT 5
+EVAL P AT 0.5
